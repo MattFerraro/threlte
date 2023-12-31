@@ -104,36 +104,44 @@
   </Folder>
 </Pane>
 
-<div style="position:relative; height:100%; width:100%; background-color: rgb(14,22,37)">
-  <Canvas>
-    <T.PerspectiveCamera
-      makeDefault
-      position={[20, 20, 20]}
-      fov={36}
-      target={[0, 0, 0]}
-    >
-      <OrbitControls
-        bind:ref={orbitControls}
-        on:change={() => {
-          center.set([orbitControls.target.x, orbitControls.target.y, orbitControls.target.z])
-        }}
-      />
-    </T.PerspectiveCamera>
+<div class="relative flex h-full w-full flex-col">
+  <div class="h-10 bg-white">Placeholder top</div>
+  <div class="flex bg-slate-100">
+    <div>Placeholder Left</div>
+    <div class="h-[500px] w-[800px] bg-blue-900">
+      <Canvas>
+        <T.PerspectiveCamera
+          makeDefault
+          position={[20, 20, 20]}
+          fov={36}
+          target={[0, 0, 0]}
+        >
+          <OrbitControls
+            bind:ref={orbitControls}
+            on:change={() => {
+              center.set([orbitControls.target.x, orbitControls.target.y, orbitControls.target.z])
+            }}
+          />
+        </T.PerspectiveCamera>
 
-    <Scene center={$center} />
+        <Scene center={$center} />
 
-    <Gizmo
-      center={$center}
-      {turnRate}
-      {verticalPlacement}
-      {horizontalPlacement}
-      {xColor}
-      {yColor}
-      {zColor}
-      {toneMapped}
-      {size}
-      {paddingX}
-      {paddingY}
-    />
-  </Canvas>
+        <Gizmo
+          center={$center}
+          {turnRate}
+          {verticalPlacement}
+          {horizontalPlacement}
+          {xColor}
+          {yColor}
+          {zColor}
+          {toneMapped}
+          {size}
+          {paddingX}
+          {paddingY}
+        />
+      </Canvas>
+    </div>
+    <div>Placeholder right</div>
+  </div>
+  <div class="h-10 bg-white">Placeholder bottom</div>
 </div>
